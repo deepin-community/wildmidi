@@ -1,0 +1,64 @@
+Source: wildmidi
+Section: sound
+Priority: optional
+Maintainer: Bret Curtis <psi29a@gmail.com>
+Uploaders: Emmet Hikory <emmet.hikory@gmail.com>, Sebastian Dröge <slomo@debian.org>
+Build-Depends: debhelper (>= 11),
+               cmake,
+               libasound2-dev [linux-any]
+Standards-Version: 4.3.0
+Homepage: http://www.mindwerks.net/projects/wildmidi/
+Vcs-Browser: https://salsa.debian.org/games-team/WildMIDI
+Vcs-Git: https://salsa.debian.org/games-team/WildMIDI.git
+
+Package: wildmidi
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Recommends: libwildmidi-config
+Description: software MIDI player
+ Minimal MIDI player implementation based on the wildmidi library that
+ can either dump to WAV or playback over ALSA. It is intended to
+ demonstrate the features of libWildMidi, including: reberb, logarithmic
+ volume and high-quality linear or gauss resampling.
+
+Package: libwildmidi2
+Section: libs
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Suggests: libwildmidi-config
+Replaces: libwildmidi0
+Description: software MIDI player library
+ MIDI streaming library designed to process a MIDI file using sound patches
+ and stream the results as stereo audio data through a buffer which an
+ external program can then process further.
+
+Package: libwildmidi-dev
+Section: libdevel
+Architecture: any
+Depends: libwildmidi2 (= ${binary:Version}),
+         ${misc:Depends}
+Recommends: libwildmidi-config
+Description: software MIDI player library headers
+ MIDI streaming library designed to process a MIDI file using sound patches
+ and stream the results as stereo audio data through a buffer which an
+ external program can then process further.
+ .
+ This package contains the development headers, static library and symlinks
+ to libWildMidi.so.1
+
+Package: libwildmidi-config
+Section: misc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Recommends: freepats
+Description: software MIDI player configuration
+ MIDI streaming library designed to process a MIDI file using sound patches
+ and stream the results as stereo audio data through a buffer which an
+ external program can then process further.
+ .
+ This package contains the configuration files and relevant documentation

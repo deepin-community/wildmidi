@@ -1,0 +1,31 @@
+#! /usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# Uncomment to view all compilation commands and fix W-compiler-flags-hidden
+export VERBOSE=1
+
+#CMake silently ignores CPPFLAGS. Below will properly set CFLAGS/CXXFLAGS
+#https://wiki.debian.org/Hardening#Notes_for_packages_using_CMake
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_INSTALL_PREFIX=/usr -DWANT_STATIC=TRUE -DCMAKE_BUILD_TYPE="Release"
+
+override_dh_installchangelogs:
+	dh_installchangelogs README.md
+
+copyright_check:
+	${MAKE} -f /usr/share/cdbs/1/rules/utils.mk debian/stamp-copyright-check
+	rm debian/stamp-copyright-check
+
+%:
+	dh $@ --builddirectory=build
+
+override_dh_clean:
+	dh_clean
+	-rm -f include/config.h

@@ -1,0 +1,251 @@
+wildmidi (0.4.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Relaxed package dependencies, thanks Fabian Greffrath (Closes: 612509)
+
+ -- Bret Curtis <psi29a@gmail.com>  Wed, 06 Feb 2019 14:46:31 +0100
+
+wildmidi (0.4.2-1) unstable; urgency=medium
+
+  [ Bret Curtis ]
+  * New upstream release.
+    - Fix CVE-2017-11661, CVE-2017-11662, CVE-2017-11663. (Closes: #871616)
+    - Fix CVE-2017-1000418. (Closes: #886503)
+  * Declare compliance with Debian Policy 4.1.3.
+
+  [ Markus Koschany ]
+  * Switch to compat level 11.
+
+ -- Bret Curtis <psi29a@gmail.com>  Sun, 07 Jan 2018 00:45:44 +0100
+
+wildmidi (0.4.0-2) unstable; urgency=medium
+
+  * Corrected copyright of docs/* to be under CC-BY-SA 4.0
+
+ -- Bret Curtis <psi29a@gmail.com>  Mon, 12 Sep 2016 08:50:14 +0300
+
+wildmidi (0.4.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * dbg packages automatically created now (Closes: 581035)
+
+ -- Bret Curtis <psi29a@gmail.com>  Thu, 16 Jun 2016 08:50:14 +0300
+
+wildmidi (0.3.8-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 13 May 2015 11:50:14 +0300
+
+wildmidi (0.3.8-1) experimental; urgency=low
+
+  [ Bret Curtis ]
+  * New upstream release
+  * Library: Fixed a seek-to-0 bug in order to cure an issue of truncated
+      start.
+  * Player, OpenAL: reduced buffers from 8 to 4 so as to cure some output
+      delay issues.
+
+  [ Scott Howard ]
+  * Added Vcs-* fields to debian/control
+
+ -- Bret Curtis <psi29a@gmail.com>  Thu, 05 Feb 2015 08:35:33 +0100
+
+wildmidi (0.3.7-1) unstable; urgency=low
+
+  [ Bret Curtis ]
+  * New upstream release
+  * Updated watch file
+  * Added upstream changelog
+
+ -- Bret Curtis <psi29a@gmail.com>  Thu, 05 Jun 2014 08:35:33 +0100
+
+wildmidi (0.3.5-1) unstable; urgency=low
+
+  [ Bret Curtis ]
+  * New upstream release
+
+ -- Bret Curtis <psi29a@gmail.com>  Tue, 18 Mar 2014 08:35:33 +0100
+
+wildmidi (0.3.3-4) unstable; urgency=low
+
+  [ Bret Curtis ]
+  * Patch: 05-hurd-ONLCR.patch - Fix building on hurd, define __USE_XOPEN
+  * Set VERBOSE=1 for cmake magic that fixes "compiler-flags-hidden" warning
+  * Do out-of-tree build, gives us a cleaner build
+
+ -- Bret Curtis <psi29a@gmail.com>  Thu, 13 Feb 2014 13:35:33 +0100
+
+wildmidi (0.3.3-3) unstable; urgency=low
+
+  [ Bret Curtis ]
+  * Patch: 03-kfreebsd-fixes.patch - Fix audio auto-detection on kfreebsd
+  * Patch: 04-SYMBOL.patch - Moved SYMBOL to wildmidi_lib.c (Closes: 738721)
+
+ -- Bret Curtis <psi29a@gmail.com>  Wed, 12 Feb 2014 12:35:33 +0100
+
+wildmidi (0.3.3-2) unstable; urgency=low
+
+  [ Bret Curtis ]
+  * Patch: 01-hurd-autodetect.patch - Fix building on hurd
+  * Patch: 02-version-bump.patch - Bump version to 0.3.3
+  * Updated copyright file
+
+ -- Bret Curtis <psi29a@gmail.com>  Tue, 11 Feb 2014 14:35:33 -0400
+
+wildmidi (0.3.3-1) unstable; urgency=low
+
+  [ Bret Curtis ]
+  * Fix segfaulting when running with reverb (Closes: 711658)
+  * Fix upstream to forked repo (Closes: 735277)
+  * Fix FTBFS on x32 (Closes: 702756)
+
+  [ Scott Howard ]
+  * Updated libwildmidi1.symbols
+
+ -- Bret Curtis <psi29a@gmail.com>  Sat, 18 Jan 2014 08:35:33 -0400
+
+wildmidi (0.2.3.4-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix Replaces line. (Closes: #636201)
+
+ -- Jessica McKellar <jesstess@mit.edu>  Sun, 21 Aug 2011 14:35:33 -0400
+
+wildmidi (0.2.3.4-2) unstable; urgency=low
+
+  * Split out libwildmidi-config to comply with Policy 8.2
+  * Add Multi-Arch support
+    - debian/control: add Multi-Arch:, Pre-Depends, bump debhelper version
+    - debian/libwildmidi{1,-dev}.install: adjust library paths
+    - debian/compat: increase to compatibility level 9
+  * debian/control: use [linux-any] for Build-Depends (Closes: 634748)
+  * Bump Policy to 3.9.2
+
+ -- Emmet Hikory <emmet.hikory@gmail.com>  Fri, 29 Jul 2011 01:58:52 +0900
+
+wildmidi (0.2.3.4-1) unstable; urgency=low
+
+  * New upstream release
+  * Drop 01_wildmidi-static-follows-non-static-declaration: adopted upstream
+  * 06_wildmidi.cfg-path: rebase
+  * 07_manpage_conformity: manpage syntax cleanups
+  * Bump policy to 3.9.1
+  * Migrate to dh(1)
+  * Pass --with-wildmidi-cfg instead of --with-timidity-cfg (Closes: 608654)
+
+ -- Emmet Hikory <emmet.hikory@gmail.com>  Tue, 22 Feb 2011 02:01:40 +0900
+
+wildmidi (0.2.3.2-2) unstable; urgency=low
+
+  * debian/patches/01_wildmidi-static-follows-non-static-declaration.patch:
+    + Fix build failure of the OSS sound output support.
+
+ -- Sebastian Dröge <slomo@debian.org>  Fri, 09 Jul 2010 06:14:32 +0200
+
+wildmidi (0.2.3.2-1) unstable; urgency=low
+
+  * New upstream release:
+    + debian/control,
+      debian/libwildmidi[01].install,
+      debian/libwildmidi[01].symbols:
+      - Update for new soname.
+    + debian/wildmidi.install,
+      debian/libwildmidi0.install,
+      debian/libwildmidi-dev.install:
+      - Add manpages, which are now CC BY-SA 3.0 licensed.
+    + debian/copyright:
+      - Update copyright for the CC BY-SA 3.0 manpages.
+
+ -- Sebastian Dröge <slomo@debian.org>  Thu, 08 Jul 2010 07:37:05 +0200
+
+wildmidi (0.2.3.1+dfsg-1) unstable; urgency=low
+
+  * New upstream release:
+    + Dropped documentation from original source tarball because
+      it's licensed under a non-free Creative Commons non-commercial
+      license.
+    + debian/patches/01_config-parser.patch,
+      debian/patches/02_memleaks.patch,
+      debian/patches/03_arch-none.patch,
+      debian/patches/04_alsa-no-mmap.patch,
+      debian/patches/05_am-maintainer-mode.patch,
+      debian/patches/07_invalid-free.patch,
+      debian/patches/08_export-symbols-regex.patch,
+      debian/patches/99_autoreconf.patch:
+      - Dropped, merged upstream.
+    + debian/copyright:
+      - Update licenses to GPLv3 and LGPLv3.
+    + debian/control,
+      debian/rules,
+      debian/libwildmidi0.symbols:
+      - Update symbols and shlibs version and add a Breaks
+        against gstreamer0.10-plugins-bad (<< 0.10.19-2) because
+        of API changes without a soname change. No other package
+        is using the library right now and upstream is now aware
+        of the problem.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 07 Jul 2010 08:19:46 +0200
+
+wildmidi (0.2.2-3) unstable; urgency=low
+
+  * debian/libwildmidi0.symbols,
+    debian/patches/08_export-symbols-regex.patch,
+    debian/patches/99_autoreconf.patch:
+    + Add export symbols regex to only export symbols that should be exported.
+  * debian/patches/07_invalid-free.patch:
+    + Patch by Benjamin Otte to fix an invalid free.
+      https://bugzilla.gnome.org/show_bug.cgi?id=618247
+  * debian/source/format,
+    debian/rules:
+    + Switch to source format 3.0 (quilt).
+  * debian/rules:
+    + Generate correct shlibs file and fail the build if the symbols file
+      is wrong.
+  * debian/control:
+    + Update Standards-Version to 3.8.4.
+    + Line-wrap control fields.
+    + Add ${misc:Depends} to the -dev package.
+    + Make shared library package dependency of the -dev package
+      more strict to fix a lintian warning.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 11 May 2010 06:31:11 +0200
+
+wildmidi (0.2.2-2) unstable; urgency=low
+
+  * debian/rules,
+    debian/libwildmidi0.install,
+    debian/wildmidi.cfg,
+    debian/patches/06_wildmidi.cfg-path.patch:
+    + Recommend freepats and put a default wildmidi configuration using
+      freepats into /etc/wildmidi/wildmidi.cfg.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 25 Feb 2008 06:51:39 +0100
+
+wildmidi (0.2.2-1) unstable; urgency=low
+
+  [ Emmet Hikory ]
+  * Initial release. (Closes: #465030)
+
+  [ Sebastian Dröge ]
+  * debian/patches/01_config-parser.patch:
+    + Fix parsing of redirects and pat lines with ".pat" at the end in
+      config files. Patch based on the one from the Fedora package.
+  * debian/patches/02_memleaks.patch:
+    + Fix some memory leaks.
+  * debian/patches/03_arch-none.patch:
+    + Patch taken from the Fedora package to allow compilation without
+      arch specific optimizations.
+  * debian/patches/04_alsa-no-mmap.patch:
+    + Patch taken from the Fedora package to use normal ALSA write functions
+      instead of MMAP to work with pulseaudio.
+  * debian/patches/05_am-maintainer-mode.patch:
+    + Add AM_MAINTAINER_MODE to configure.ac.
+  * debian/patches/99_autoreconf.patch:
+    + Regenerated autoconf/automake stuff for the above changes.
+  * debian/control:
+    + Use alsa on Linux systems.
+  * debian/rules:
+    + Adjust default path for config file.
+
+ -- Emmet Hikory <emmet.hikory@gmail.com>  Mon, 11 Feb 2008 09:21:00 +0900

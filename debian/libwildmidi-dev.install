@@ -1,0 +1,4 @@
+debian/tmp/usr/lib/*/libWildMidi.so
+debian/tmp/usr/lib/*/libWildMidi.a
+debian/tmp/usr/include/wildmidi_lib.h
+debian/tmp/usr/share/man/man3
